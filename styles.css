@@ -1,3 +1,7 @@
+html, body {
+  height: 300px;
+}
+
 body {     
   --corBackground:rgba(0, 166, 232, 0.1); 
   /*background-color: linear-gradient(90deg, rgba(0, 168, 232, 0.7), rgba(0, 23, 31, 0.9) );*/
@@ -23,10 +27,12 @@ h1 {
   color: #cde7f0f8;
   font-family: 'Kaushan Script', cursive;    
   /*font-size: calc(20px + 5vw);   /* BOTAR MAX-FONT-SIZE */
-  font-size: clamp(3.5rem, 7vw, 6rem);
+  /*font-size: clamp(3.5rem, 7vw, 6rem);*/
+  font-size: 10vh;
   font-weight: 100; 
   /*margin: 0 0 15px 0;*/
-  margin: 2.5% 0;
+  /*margin: 2.5% 0;*/
+  margin: 2.5vh 0;
   padding: 0;
   text-shadow: 3px 0 #00a6e8d3;
 }
@@ -34,23 +40,26 @@ h1 {
 footer {
   color: #DBEDF3; 
   font-family: 'Kalam', cursive;
-  font-size: calc(14px + 0.3vw); 
+  /*font-size: calc(14px + 0.3vw); */
+  font-size: 3vh; 
   /*padding-top: 10px;   */
-  padding: 1% 0;
+  padding: 1vh 0;
 }
 
 img {   
   border: 12px outset #007EA7;    
   box-sizing: border-box; 
-  width: 100%;
+  height: 80%;
 } 
  
 .bateria {   
   margin: 0 auto;
   padding: 0;
   position: relative;
-  width: 80%;
-  max-width: 750px;
+  /*width: 80%;
+  max-width: 750px;*/
+  height: 90vh;
+  /*max-width: 70vw;*/
 } 
 
 .drum {  
