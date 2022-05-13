@@ -1,0 +1,226 @@
+body {     
+  --corBackground:rgba(0, 166, 232, 0.1); 
+  /*background-color: linear-gradient(90deg, rgba(0, 168, 232, 0.7), rgba(0, 23, 31, 0.9) );*/
+  /*background-size: contain;*/
+  background-image: linear-gradient(90deg, rgba(0, 168, 232, 0.7), rgba(0, 23, 31, 0.9) ), url("images/drum-bg5.png");  
+  /*background-image: 
+    linear-gradient(90deg, rgba(0, 168, 232, 0.7), rgba(0, 23, 31, 0.9) ), 
+    url("images/drum-bg5.png"), 
+    url("images/drum-bg6.png");  
+  /*background-position: bottom -50px right 0px;  */
+  /*background-repeat: no-repeat;  /* NO REPEAT-X  REPEAT-Y   CRIAR MEDIA QUERY SEM BG*/
+  background-attachment: fixed;
+  background-position: bottom 0 right 0;  
+  /*background-clip: border-box;*/
+  /*background-size: auto 100vh;*/
+  padding: 0;
+  margin: 0;
+  text-align: center; 
+  user-select: none; 
+}
+
+h1 {
+  color: #cde7f0f8;
+  font-family: 'Kaushan Script', cursive;    
+  /*font-size: calc(20px + 5vw);   /* BOTAR MAX-FONT-SIZE */
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 100; 
+  /*margin: 0 0 15px 0;*/
+  margin: 2.5% 0;
+  padding: 0;
+  text-shadow: 3px 0 #00a6e8d3;
+}
+
+footer {
+  color: #DBEDF3; 
+  font-family: 'Kalam', cursive;
+  font-size: calc(14px + 0.3vw); 
+  /*padding-top: 10px;   */
+  padding: 1% 0;
+}
+
+img {   
+  border: 12px outset #007EA7;    
+  box-sizing: border-box; 
+  width: 100%;
+} 
+ 
+.bateria {   
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  width: 80%;
+  max-width: 750px;
+} 
+
+.drum {  
+  background-color: transparent;
+  border: none; 
+  color: #007EA7; 
+  font-size: calc(12px + 2vw);  
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;  
+  text-shadow: 3px 0 #DBEDF3;   
+}
+
+.flex { 
+  align-items: center;
+  display: flex;
+  flex-direction: column;  
+  height: 100vh;  
+  justify-content: center;
+}
+
+
+.q {     
+  position: absolute;  
+  left: 25%;
+  top: 24%; 
+}
+
+.snare {   
+  background-color: var(--corBackground); 
+  border-radius: 100%;  
+  height: 5%;
+  left: 20%;
+  padding: 0 9% 0.1% 8%;
+  position: absolute;
+  opacity: 0; 
+  top: 36.5%;  
+  transform: rotate(2deg); 
+}
+
+.w {     
+  position: absolute;
+  left: 36%;  
+  top: 6%;
+}
+
+.tom1 {  
+  background-color: var(--corBackground);
+  border-radius: 100%; 
+  height: 6%;
+  left: 31%;
+  opacity: 0; 
+  padding: 0 6% 0 8%; 
+  position: absolute;
+  top: 19%;  
+  transform: rotate(3deg);  
+}
+
+.e {   
+  position: absolute;
+  left: 54%;
+  top: 6%; 
+}
+
+.tom2 {  
+  background-color: var(--corBackground);
+  border-radius: 100%;  
+  height: 8%;
+  left: 48%;
+  opacity: 0; 
+  padding: 0 6% 0 8.5%;
+  position: absolute;
+  top: 18%;  
+  transform: rotate(-3deg);  
+}
+
+.r {   
+  position: absolute;
+  left: 67%;
+  top: 26%; 
+}
+
+.surdo {    
+  background-color: var(--corBackground);  
+  border-radius: 100%;  
+  height: 4.5%;
+  left: 58.5%;
+  opacity: 0; 
+  padding: 0 9% 0 10%; 
+  position: absolute;
+  top: 40%;   
+}
+
+.j {   
+  position: absolute;
+  left: 7%;
+  top: 33%;
+}
+
+.hihat {  
+  background-color: var(--corBackground);  
+  border-radius: 100%;  
+  height: 4%;
+  left: 6%;  
+  opacity: 0;
+  padding: 0 8% 0 8%;
+  position: absolute;
+  top: 29.5%;  
+}
+
+.k {   
+  position: absolute;
+  left: 14%;
+  top: 7%;
+}
+
+.crash {  
+  background-color: var(--corBackground);  
+  border-radius: 100%;  
+  height: 5%;
+  left: 13%;
+  opacity: 0;
+  padding: 0 8.5% 0 10%;
+  position: absolute;
+  top: 4.5%;  
+  transform: rotate(8.5deg); 
+}
+
+.l {   
+  position: absolute;  
+  left: 87%;
+  top: 5%;
+}
+
+.ride {    
+  background-color: var(--corBackground);
+  border-radius: 100%;  
+  height: 8%;
+  left: 65.5%;
+  opacity: 0;
+  padding: 0 12% 0 11.5%;
+  position: absolute;
+  top: 15%; 
+}
+
+.s {   
+  position: absolute;
+  padding: 3% 8% 14%;
+  left: 38%;
+  top: 45%;
+}
+
+
+.kick {  
+  background-color: var(--corBackground);  
+  border-radius: 100%;  
+  height: 35%;
+  left: 34.5%;
+  padding: 0 12% 0 12.5%;
+  position: absolute;
+  opacity: 0;
+  top: 45%;  
+}
+  
+
+.pressionado { 
+  color: #00A8E8; 
+}
+
+@media (max-width: 1200px) {
+  body {
+    background-image: linear-gradient(90deg, rgba(0, 168, 232, 0.7), rgba(0, 23, 31, 0.9) ), url("images/drum-bg6.png");  
+  }
+}
