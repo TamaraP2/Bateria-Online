@@ -152,37 +152,36 @@ function endKeyboardAnimation (key) {
 /* ================== REMOVING SOUND DELAY ================== */
 
 let snare = new Audio('sounds/snare.mp3');
-snare.volume = 0.1;
+snare.volume = 0.001;
 snare.play();   
 
 let tom1 = new Audio('sounds/tom-1.mp3');
-tom1.volume = 0.1;
+tom1.volume = 0.001;
 tom1.play();                
 
 let tom2 = new Audio('sounds/tom-2.mp3');
-tom2.volume = 0.1;
+tom2.volume = 0.001;
 tom2.play(); 
 
 let surdo = new Audio('sounds/surdo.mp3');
-surdo.volume = 0.1;
+surdo.volume = 0.001;
 surdo.play(); 
 
 let hi_hat_closed = new Audio('sounds/hi-hat-closed.mp3');
-hi_hat_closed.volume = 0.1;
+hi_hat_closed.volume = 0.001;
 hi_hat_closed.play(); 
 
 let crash = new Audio('sounds/crash.mp3');
-crash.volume = 0.1;
+crash.volume = 0.001;
 crash.play(); 
 
 let ride = new Audio('sounds/ride.mp3');
-ride.volume = 0.1;
+ride.volume = 0.001;
 ride.play(); 
 
 let kick = new Audio('sounds/kick.mp3');
-kick.volume = 0.1;
+kick.volume = 0.001;
 kick.play(); 
-
 
 
 
