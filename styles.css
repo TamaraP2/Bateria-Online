@@ -1,0 +1,318 @@
+body {     
+  --corBackgroundDesktop:rgba(0, 166, 232, 0.1);   
+  --corBackgroundMobile: transparent;   
+  --opacidadeLetras: 0;  
+  background-size: cover;
+  background-image: linear-gradient(90deg, rgba(0, 168, 232, 0.7), rgba(0, 23, 31, 0.9) ), url("images/drum-bg5.png");    
+  background-position: bottom 0 right 0;     
+  padding: 0;
+  margin: 0;
+  text-align: center; 
+  user-select: none; 
+}
+
+h1 {
+  color: #cde7f0f8;
+  font-family: 'Kaushan Script', cursive;     
+  font-size: calc(2px + 8.5vh); 
+  font-weight: 100; 
+  margin: 2.5vh 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+footer {
+  color: #DBEDF3; 
+  font-family: 'Kalam', cursive;
+  font-size: 3vh; 
+  padding: 1vh 0;
+}
+ 
+.main {   
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  height: 90vh;
+} 
+
+.bateria {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  height: 70vh; 
+}
+
+.drumkit {   
+  border: 0.75rem outset #007EA7;    
+  box-sizing: border-box; 
+  height: 100%;
+} 
+
+.drum {  
+  background-color: transparent;
+  border: none; 
+  box-sizing: border-box;
+  color: #007EA7; 
+  font-size: calc(12px + 1.4vw);   
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 900;  
+  text-shadow: 0.1rem 0 #DBEDF3; 
+} 
+ 
+.pressionado { 
+  color: #00A8E8; 
+}
+
+.menu {
+  position: absolute;  
+  border: none; 
+  left: 91%;
+  top: 7%;
+  width: 3.5%; 
+  height: 3.5%; 
+}
+
+.menu:hover {
+  cursor: pointer;
+}
+
+
+/* 
+  Classes com final M (Mouse) serão usados no desktop. 
+  Classes com final T (Touch) serão usadas em mobile. 
+*/
+
+
+.q {      /*snare*/     
+  opacity: var(--opacidadeLetras);  
+  position: absolute;  
+  left: 26%;
+  top: 27%; 
+}
+  
+.qT {      /*snare*/    
+  background-color: var(--corBackgroundMobile); 
+  border-radius: 30%;  
+  height: 17%;
+  left: 19%;
+  padding: 0 10% 0% 9%;
+  position: absolute; 
+  top: 36.5%;    
+} 
+
+.qM {      /*snare*/
+  background-color: var(--corBackgroundDesktop); 
+  border-radius: 100%;  
+  height: 5%;
+  left: 20%;
+  padding: 0 9% 0.1% 8%;
+  position: absolute;
+  opacity: 0; 
+  top: 36.5%; 
+  transform: rotate(2deg);   
+}
+
+.w {      /* tom1 */     
+  opacity: var(--opacidadeLetras);  
+  position: absolute;
+  left: 37%;  
+  top: 10%;
+}
+
+.wT {      /* tom1 */  
+  background-color: var(--corBackgroundMobile); 
+  border-radius: 30%; 
+  height: 18%;
+  left: 31%;  
+  padding: 0 7% 0 8%; 
+  position: absolute;
+  top: 19%;   
+  transform: rotate(3deg);  
+}
+
+.wM {      /* tom1 */
+  background-color: var(--corBackgroundDesktop);
+  border-radius: 100%; 
+  height: 6%;
+  left: 31%;
+  opacity: 0; 
+  padding: 0 6% 0 8%; 
+  position: absolute;
+  top: 19%;   
+  transform: rotate(3deg);  
+}
+
+.e {      /* tom2 */   
+  opacity: var(--opacidadeLetras);  
+  position: absolute;
+  left: 54%;
+  top: 10%; 
+}
+
+.eT {      /* tom2 */  
+  background-color: var(--corBackgroundMobile); 
+  border-radius: 22%;  
+  height: 22%;
+  left: 48%; 
+  padding: 0 7% 0 8.5%;
+  position: absolute;
+  top: 18%;  
+  transform: rotate(-3deg);  
+}
+
+.eM {      /* tom2 */
+  background-color: var(--corBackgroundDesktop);
+  border-radius: 100%;  
+  height: 8%;
+  left: 48%;
+  opacity: 0; 
+  padding: 0 6% 0 8.5%;
+  position: absolute;
+  top: 18%;  
+  transform: rotate(-3deg);  
+}
+
+.r {      /* surdo */     
+  opacity: var(--opacidadeLetras);  
+  position: absolute;
+  left: 67%;
+  top: 30%; 
+}
+
+.rT {      /* surdo */      
+  background-color: var(--corBackgroundMobile); 
+  border-radius: 5%;  
+  height: 36%;
+  left: 58.5%; 
+  padding: 0 10% 0 10%; 
+  position: absolute;
+  top: 40%;   
+}
+
+.rM {      /* surdo */  
+  background-color: var(--corBackgroundDesktop);  
+  border-radius: 100%;  
+  height: 4.5%;
+  left: 58.5%;
+  opacity: 0; 
+  padding: 0 9% 0 10%; 
+  position: absolute;
+  top: 40%;   
+}
+
+.j {      /*hi-hat */   
+  opacity: var(--opacidadeLetras);  
+  position: absolute;
+  left: 7%;
+  top: 33%;
+}
+
+.jT {      /*hi-hat */  
+  background-color: var(--corBackgroundMobile); 
+  border-radius: 100%;  
+  height: 8%;
+  left: 6%;   
+  padding: 0 8.5% 0 8.5%;
+  position: absolute;
+  top: 29%;  
+}
+ 
+.jM {      /*hi-hat */
+  background-color: var(--corBackgroundDesktop);  
+  border-radius: 100%;  
+  height: 4%;
+  left: 6%;  
+  opacity: 0;
+  padding: 0 8% 0 8%;
+  position: absolute;
+  top: 29.5%;  
+}
+
+.k {      /* crash */   
+  opacity: var(--opacidadeLetras);  
+  position: absolute;
+  left: 14%;
+  top: 7%;
+}
+
+.kT {      /* crash */  
+  background-color: var(--corBackgroundMobile); 
+  border-radius: 100%;  
+  height: 10%;
+  left: 13%; 
+  padding: 0 10% 0 10%;
+  position: absolute;   
+  top: 3.2vh;
+  top: 4%;
+  transform: rotate(8.5deg); 
+} 
+
+.kM {      /* crash */
+  background-color: var(--corBackgroundDesktop);    
+  border-radius: 100%;  
+  height: 5%;
+  left: 13%;
+  opacity: 0;
+  padding: 0 8.5% 0 10%;
+  position: absolute;   
+  top: 3.2vh;
+  transform: rotate(8.5deg); 
+} 
+
+.l {      /* ride*/
+  opacity: var(--opacidadeLetras);   
+  position: absolute;  
+  left: 83%;
+  top: 7%;
+}
+
+.lT {      /* ride*/
+  background-color: var(--corBackgroundMobile); 
+  border-radius: 100%;  
+  height: 12%;
+  left: 65%; 
+  padding: 0% 13.5% 0 11.5%;
+  position: absolute;
+  top: 14%; 
+}
+
+.lM {      /* ride*/
+  background-color: var(--corBackgroundDesktop);
+  border-radius: 100%;  
+  height: 8%;
+  left: 65.5%;
+  opacity: 0;
+  padding: 0 12% 0 11.5%;
+  position: absolute;
+  top: 15%; 
+}
+
+.s {      /*bumbo*/   
+  opacity: var(--opacidadeLetras);  
+  position: absolute;
+  padding: 3% 8% 14%;
+  left: 38%; 
+  top: 45%;
+}
+
+
+.sT {      /*bumbo*/  
+  background-color: var(--corBackgroundMobile); 
+  border-radius: 100%;  
+  height: 35%;
+  left: 34.5%;
+  padding: 0 12% 0 12.5%;
+  position: absolute; 
+  top: 45%;  
+}
+  
+.sM {      /*bumbo*/
+  background-color: var(--corBackgroundDesktop);  
+  border-radius: 100%;  
+  height: 35%;
+  left: 34.5%;
+  padding: 0 12% 0 12.5%;
+  position: absolute;
+  opacity: 0;
+  top: 45%;  
+}
