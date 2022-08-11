@@ -1,9 +1,13 @@
-/* ================== RESPONSIVIDADE ================== */
+  
+/* ====================================================== */
+/* =================== RESPONSIVIDADE =================== */
+/* ====================================================== */
 
-function tamanhoDiv () {    
 
-    document.querySelector(".bateria").style.width = document.querySelector(".drumkit").offsetWidth + "px";
-    document.querySelector(".bateria").style.height = document.querySelector(".drumkit").offsetHeight + "px";  
+function dimensoesDoConteudo () {    
+
+    document.querySelector(".bateria").style.width = document.querySelector(".imagem-bateria").offsetWidth + "px";
+    document.querySelector(".bateria").style.height = document.querySelector(".imagem-bateria").offsetHeight + "px";  
 }
 
 
@@ -11,8 +15,8 @@ function responsividade () {
 
     if (window.innerHeight > window.innerWidth) {
         
-        document.querySelector(".drumkit").style.height = "auto"; 
-        document.querySelector(".drumkit").style.width = "80vw"; 
+        document.querySelector(".imagem-bateria").style.height = "auto"; 
+        document.querySelector(".imagem-bateria").style.width = "80vw"; 
         document.querySelector("body").style.backgroundImage = "linear-gradient(90deg, rgba(0, 168, 232, 0.7), rgba(0, 23, 31, 0.9) ), url(images/drum-bg6.png)";     
     } 
   
@@ -20,79 +24,85 @@ function responsividade () {
 
 window.onload = function() {
     responsividade();
-    tamanhoDiv();   
+    dimensoesDoConteudo();   
 }
 
 window.addEventListener('resize', function() { 
        
-    location.reload(); 
+    window.location.reload(); 
 }); 
  
-
-
-/* ================== MENU ================== */
  
+
+/* ====================================================== */
+/* ========================= MENU ======================= */
+/* ====================================================== */
+ 
+
 let x = 0; 
 
-document.querySelector(".menu").addEventListener("click", function () {
+document.querySelector(".icone-menu").addEventListener("click", function () {
         
     x++;
 
-    for (let i = 0; i < document.querySelectorAll(".drum").length; i = i + 2) {
+    for (let i = 0; i < document.querySelectorAll(".letras").length; i = i + 2) {
 
         if (x % 2 !== 0) {
-            document.querySelectorAll(".drum")[i].style.opacity = "1";
+            document.querySelectorAll(".letras")[i].style.opacity = "1";
         }
         else 
-            document.querySelectorAll(".drum")[i].style.opacity = "0";
+            document.querySelectorAll(".letras")[i].style.opacity = "0";
     }
         
-}); 
+});   
 
- 
 
-/* ================== MOBILE VERIFIER ================== */
- 
+
+/* ====================================================== */
+/* ================== MOBILE VERIFIER =================== */
+/* ====================================================== */ 
+
+
 if ("ontouchstart" in document.documentElement) {
      
-    for (let i = 0; i < document.querySelectorAll(".drum").length; i++) { 
+    for (let i = 0; i < document.querySelectorAll(".letras").length; i++) { 
         
-        let classeNome = document.querySelectorAll(".drum")[i].className.slice(0,1); 
+        let classeNome = document.querySelectorAll(".letras")[i].className.slice(0,1); 
 
-        document.querySelectorAll("." + classeNome)[1].classList.add(classeNome + "T"); 
+        document.querySelectorAll("." + classeNome)[1].classList.add(classeNome + "-touch"); 
 
-        document.querySelectorAll(".drum")[i].addEventListener("touchstart", function () {
+        document.querySelectorAll(".letras")[i].addEventListener("touchstart", function () {
              
-            document.querySelectorAll("." + classeNome)[0].classList.add("pressionado");  
+            document.querySelectorAll("." + classeNome)[0].classList.add("letras-pressionadas");  
             makeSound(classeNome);             
         });
 
 
-        document.querySelectorAll(".drum")[i].addEventListener("touchend", function () {
+        document.querySelectorAll(".letras")[i].addEventListener("touchend", function () {
  
-            document.querySelectorAll("." + classeNome)[0].classList.remove("pressionado");  
+            document.querySelectorAll("." + classeNome)[0].classList.remove("letras-pressionadas");  
         }); 
  
     }
  
 } else {
    
-    for (let i = 0; i < document.querySelectorAll(".drum").length; i++) { 
+    for (let i = 0; i < document.querySelectorAll(".letras").length; i++) { 
         
-        let classeNome = document.querySelectorAll(".drum")[i].className.slice(0,1); 
+        let classeNome = document.querySelectorAll(".letras")[i].className.slice(0,1); 
 
-        document.querySelectorAll("." + classeNome)[1].classList.add(classeNome + "M");
+        document.querySelectorAll("." + classeNome)[1].classList.add(classeNome + "-mouse");
 
-        document.querySelectorAll(".drum")[i].addEventListener("mousedown", function () {
+        document.querySelectorAll(".letras")[i].addEventListener("mousedown", function () {
  
             makeSound(classeNome);           
             startMouseAnimation(classeNome);   
         });
 
 
-        document.querySelectorAll(".drum")[i].addEventListener("mouseup", function () {
+        document.querySelectorAll(".letras")[i].addEventListener("mouseup", function () {
 
-            let classeNome = document.querySelectorAll(".drum")[i].className.slice(0,1);
+            let classeNome = document.querySelectorAll(".letras")[i].className.slice(0,1);
             endMouseAnimation(classeNome);
         }); 
     }
@@ -100,21 +110,25 @@ if ("ontouchstart" in document.documentElement) {
  
     function startMouseAnimation (key) {
  
-        document.querySelectorAll("." + key)[0].classList.add("pressionado");     
+        document.querySelectorAll("." + key)[0].classList.add("letras-pressionadas");     
         document.querySelectorAll("." + key)[1].style.opacity = "1";
     }
  
     function endMouseAnimation (key) {
 
-        document.querySelectorAll("." + key)[0].classList.remove("pressionado");  
+        document.querySelectorAll("." + key)[0].classList.remove("letras-pressionadas");  
         document.querySelectorAll("." + key)[1].style.opacity = "0"; 
     }
 } 
  
+ 
 
-/* ================== KEYBOARD ================== */
+/* ====================================================== */
+/* ====================== KEYBOARD ====================== */
+/* ====================================================== */ 
 
-document.addEventListener("keydown", function (event) {    
+
+ document.addEventListener("keydown", function (event) {    
     makeSound(event.key.toLowerCase());       
     keyboardAnimation(event.key.toLowerCase());
     
@@ -128,10 +142,10 @@ document.addEventListener("keyup", function (event) {
 function keyboardAnimation (key) {
      
     if (key === "b" || key === "n" || key === " ") {
-        document.querySelectorAll(".s")[0].classList.add("pressionado");
+        document.querySelectorAll(".s")[0].classList.add("letras-pressionadas");
         document.querySelectorAll(".s")[1].style.opacity = "1";
     } else {
-        document.querySelectorAll("." + key)[0].classList.add("pressionado");
+        document.querySelectorAll("." + key)[0].classList.add("letras-pressionadas");
         document.querySelectorAll("." + key)[1].style.opacity = "1";
     }
 }
@@ -139,17 +153,20 @@ function keyboardAnimation (key) {
 function endKeyboardAnimation (key) {
     
     if (key === "b" || key === "n" || key === " ") {
-        document.querySelectorAll(".s")[0].classList.remove("pressionado");
+        document.querySelectorAll(".s")[0].classList.remove("letras-pressionadas");
         document.querySelectorAll(".s")[1].style.opacity = "0";
     } else {    
-        document.querySelectorAll("." + key)[0].classList.remove("pressionado");
+        document.querySelectorAll("." + key)[0].classList.remove("letras-pressionadas");
         document.querySelectorAll("." + key)[1].style.opacity = "0";
     }
 }
-
  
 
-/* ================== REMOVING SOUND DELAY ================== */
+
+/* ====================================================== */
+/* =============== REMOVING SOUND DELAY ================= */
+/* ====================================================== */ 
+
 
 let snare = new Audio('sounds/snare.mp3');
 snare.volume = 0.001;
@@ -181,13 +198,16 @@ ride.play();
 
 let kick = new Audio('sounds/kick.mp3');
 kick.volume = 0.001;
-kick.play(); 
+kick.play();  
 
 
 
-/* ================== SOUND ================== */
+/* ====================================================== */
+/* ======================= SOUND ======================== */
+/* ====================================================== */ 
 
-function makeSound (key) {
+
+function makeSound (key) { 
 
     let kick = new Audio('sounds/kick.mp3');
 
@@ -231,7 +251,7 @@ function makeSound (key) {
         case "b": 
             kick.play(); 
             break;
-
+ 
         case "n": 
             kick.play(); 
             break;
@@ -242,7 +262,7 @@ function makeSound (key) {
         
         case "s": 
             kick.play(); 
-            break;
+            break; 
 
         default: console.log(key);
             break;
