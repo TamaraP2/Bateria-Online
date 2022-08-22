@@ -24,7 +24,7 @@ function responsividade () {
 
 window.onload = function() {
     responsividade();
-    dimensoesDoConteudo();   
+    dimensoesDoConteudo();    
 }
 
 window.addEventListener('resize', function() { 
@@ -33,13 +33,13 @@ window.addEventListener('resize', function() {
 }); 
  
  
- 
+   
 /* ====================================================== */
 /* ================== MOUSE ANIMATIONS ================== */
 /* ====================================================== */ 
 
 
-/*if ("ontouchstart" in document.documentElement) {
+if ("ontouchstart" in document.documentElement) {
      
     for (let i = 0; i < document.querySelectorAll(".letras").length; i++) { 
         
@@ -61,8 +61,10 @@ window.addEventListener('resize', function() {
  
     }
  
+    document.querySelector(".icone-menu").style.display = "none";  
+
 } else { 
-*/
+
     for (let i = 0; i < document.querySelectorAll(".letras").length; i++) { 
 
         let parteBateria = document.querySelectorAll(".letras")[i].classList[0]; 
@@ -71,7 +73,6 @@ window.addEventListener('resize', function() {
 
         document.querySelectorAll(".letras")[i].addEventListener("mousedown", function (event) {
    
-            console.log(event);
             makeSound(event.target.classList[0]);
             startMouseAnimation(event.target.classList[0]);  
         });
@@ -95,7 +96,7 @@ window.addEventListener('resize', function() {
         document.querySelectorAll("." + key)[1].style.opacity = "0";  
     }
 
-//}
+}
  
 
 
@@ -225,10 +226,7 @@ document.querySelector(".icone-salvar").addEventListener("click", function () {
 /* =================== NOVAS LETRAS ===================== */
 /* ====================================================== */ 
  
-
-let primeiraClasse;
-let ultimaClasse;
-let vezesSalvas = 0; 
+ 
 let novasLetrasBateria = [];
 
 function novasLetras () { 
@@ -251,7 +249,6 @@ function novasLetras () {
         for (let j = i+1; j < 8; j++) {
 
             if (novasLetrasBateria[i] === novasLetrasBateria[j]) {
-                console.log("letras iguais");
                 alert("Não é possível escolher a mesma tecla para duas partes diferentes da bateria!")
                 temLetrasIguais = true;
                 break;
@@ -276,9 +273,7 @@ function novasLetras () {
             document.getElementById(novasLetrasBateria[i]).innerHTML = novasLetrasBateria[i];
             }
  
-            letrasBateria[i] = novasLetrasBateria[i];
-            
-            console.log(letrasBateria);
+            letrasBateria[i] = novasLetrasBateria[i];            
 
             m = m + 2;   
         }  
@@ -298,8 +293,7 @@ function novasLetras () {
         document.querySelector(".icone-close").style.display = "none";  
         document.querySelector(".icone-menu").style.display = "revert";  
         document.querySelector(".icone-config").style.display = "none";  
-        
-        vezesSalvas++;
+         
     }
 
     x = 1;
@@ -393,5 +387,4 @@ function makeSound (key) {
         snare.play(); 
     } 
 
-}
- 
+} 
