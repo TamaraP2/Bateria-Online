@@ -33,6 +33,102 @@ window.addEventListener('resize', function() {
 }); 
  
  
+ 
+/* ====================================================== */
+/* ================== MOUSE ANIMATIONS ================== */
+/* ====================================================== */ 
+
+
+/*if ("ontouchstart" in document.documentElement) {
+     
+    for (let i = 0; i < document.querySelectorAll(".letras").length; i++) { 
+        
+        let parteBateria = document.querySelectorAll(".letras")[i].classList[0]; 
+
+        document.querySelectorAll("." + parteBateria)[1].classList.add(parteBateria + "-touch"); 
+
+        document.querySelectorAll(".letras")[i].addEventListener("touchstart", function () {
+             
+            document.querySelectorAll("." + parteBateria)[0].classList.add("letras-pressionadas");  
+            makeSound(parteBateria);             
+        });
+
+
+        document.querySelectorAll(".letras")[i].addEventListener("touchend", function () {
+ 
+            document.querySelectorAll("." + parteBateria)[0].classList.remove("letras-pressionadas");  
+        }); 
+ 
+    }
+ 
+} else { 
+*/
+    for (let i = 0; i < document.querySelectorAll(".letras").length; i++) { 
+
+        let parteBateria = document.querySelectorAll(".letras")[i].classList[0]; 
+
+        document.querySelectorAll("." + parteBateria)[1].classList.add(parteBateria + "-mouse"); 
+
+        document.querySelectorAll(".letras")[i].addEventListener("mousedown", function (event) {
+   
+            console.log(event);
+            makeSound(event.target.classList[0]);
+            startMouseAnimation(event.target.classList[0]);  
+        });
+     
+        document.querySelectorAll(".letras")[i].addEventListener("mouseup", function (event) {
+
+            endMouseAnimation(event.target.classList[0]); 
+        }); 
+    }
+ 
+    function startMouseAnimation (key) {
+ 
+        document.querySelectorAll("." + key)[0].classList.add("letras-pressionadas");     
+        document.querySelectorAll("." + key)[1].style.opacity = "1";
+        document.querySelectorAll("." + key)[1].classList.add(key + "-mouse"); 
+    }
+ 
+    function endMouseAnimation (key) {
+
+        document.querySelectorAll("." + key)[0].classList.remove("letras-pressionadas");  
+        document.querySelectorAll("." + key)[1].style.opacity = "0";  
+    }
+
+//}
+ 
+
+
+/* ====================================================== */
+/* ====================== KEYBOARD ====================== */
+/* ====================================================== */ 
+
+
+document.addEventListener("keydown", function (event) {    
+
+    makeSound(event.key.toUpperCase());       
+    keyboardAnimation(event.key.toUpperCase());
+    
+});
+
+document.addEventListener("keyup", function (event) {    
+    endKeyboardAnimation(event.key.toUpperCase());
+});
+
+
+function keyboardAnimation (key) {
+     
+    document.getElementById(key).classList.add("letras-pressionadas");
+    document.getElementById(key).nextElementSibling.style.opacity = "1";  
+} 
+
+function endKeyboardAnimation (key) {
+
+    document.getElementById(key).classList.remove("letras-pressionadas");
+    document.getElementById(key).nextElementSibling.style.opacity = "0";  
+}
+ 
+
 
 /* ====================================================== */
 /* ========================= MENU ======================= */
@@ -42,126 +138,174 @@ window.addEventListener('resize', function() {
 let x = 0; 
 
 document.querySelector(".icone-menu").addEventListener("click", function () {
-        
+    
     x++;
-
+     
     for (let i = 0; i < document.querySelectorAll(".letras").length; i = i + 2) {
-
-        if (x % 2 !== 0) {
-            document.querySelectorAll(".letras")[i].style.opacity = "1";
+  
+        if (x % 2 !== 0) { 
+            document.querySelectorAll(".letras")[i].style.opacity = "1"; 
         }
-        else 
-            document.querySelectorAll(".letras")[i].style.opacity = "0";
+        else  {
+            document.querySelectorAll(".letras")[i].style.opacity = "0"; 
+        }
     }
-        
+       
+    if (x % 2 !== 0) { 
+        document.querySelector(".icone-config").style.display = "revert";
+    }
+    else  {
+        document.querySelector(".icone-config").style.display = "none";  
+
+    }  
 });   
 
 
-
-/* ====================================================== */
-/* ================== MOBILE VERIFIER =================== */
-/* ====================================================== */ 
-
-
-if ("ontouchstart" in document.documentElement) {
-     
-    for (let i = 0; i < document.querySelectorAll(".letras").length; i++) { 
-        
-        let classeNome = document.querySelectorAll(".letras")[i].className.slice(0,1); 
-
-        document.querySelectorAll("." + classeNome)[1].classList.add(classeNome + "-touch"); 
-
-        document.querySelectorAll(".letras")[i].addEventListener("touchstart", function () {
-             
-            document.querySelectorAll("." + classeNome)[0].classList.add("letras-pressionadas");  
-            makeSound(classeNome);             
-        });
-
-
-        document.querySelectorAll(".letras")[i].addEventListener("touchend", function () {
+let y = 0;
  
-            document.querySelectorAll("." + classeNome)[0].classList.remove("letras-pressionadas");  
-        }); 
- 
+document.querySelector(".icone-config").addEventListener("click", function () {
+
+    for (let i = 0; i < 8; i++) {
+
+        document.querySelectorAll(".novas-letras")[i].style.display = "revert";
     }
- 
-} else {
+
+    x++;
+     
+    for (let i = 0; i < document.querySelectorAll(".letras").length; i = i + 2) {
    
-    for (let i = 0; i < document.querySelectorAll(".letras").length; i++) { 
-        
-        let classeNome = document.querySelectorAll(".letras")[i].className.slice(0,1); 
-
-        document.querySelectorAll("." + classeNome)[1].classList.add(classeNome + "-mouse");
-
-        document.querySelectorAll(".letras")[i].addEventListener("mousedown", function () {
- 
-            makeSound(classeNome);           
-            startMouseAnimation(classeNome);   
-        });
-
-
-        document.querySelectorAll(".letras")[i].addEventListener("mouseup", function () {
-
-            let classeNome = document.querySelectorAll(".letras")[i].className.slice(0,1);
-            endMouseAnimation(classeNome);
-        }); 
+        document.querySelectorAll(".letras")[i].style.opacity = "0";  
     }
 
+    document.querySelector(".icone-salvar").style.display = "revert";  
+    document.querySelector(".icone-close").style.display = "revert";  
+    document.querySelector(".icone-menu").style.display = "none";  
+    document.querySelector(".icone-config").style.display = "none";  
  
-    function startMouseAnimation (key) {
- 
-        document.querySelectorAll("." + key)[0].classList.add("letras-pressionadas");     
-        document.querySelectorAll("." + key)[1].style.opacity = "1";
-    }
- 
-    function endMouseAnimation (key) {
+});
+  
 
-        document.querySelectorAll("." + key)[0].classList.remove("letras-pressionadas");  
-        document.querySelectorAll("." + key)[1].style.opacity = "0"; 
+
+document.querySelector(".icone-close").addEventListener("click", function () {
+
+    for (let i = 0; i < 8; i++) {
+        document.querySelectorAll(".novas-letras")[i].style.display = "none";
     }
-} 
- 
- 
+
+    
+    for (let i = 0; i < document.querySelectorAll(".letras").length; i = i + 2) {
+   
+        document.querySelectorAll(".letras")[i].style.opacity = "0";  
+    }
+
+    document.querySelector(".icone-salvar").style.display = "none";  
+    document.querySelector(".icone-close").style.display = "none";  
+    document.querySelector(".icone-menu").style.display = "revert";  
+    document.querySelector(".icone-config").style.display = "none";  
+
+}); 
+
+
 
 /* ====================================================== */
-/* ====================== KEYBOARD ====================== */
+/* ========================= SALVAR ===================== */
 /* ====================================================== */ 
-
-
- document.addEventListener("keydown", function (event) {    
-    makeSound(event.key.toLowerCase());       
-    keyboardAnimation(event.key.toLowerCase());
-    
-});
-
-document.addEventListener("keyup", function (event) {    
-    endKeyboardAnimation(event.key.toLowerCase());
-});
-
-
-function keyboardAnimation (key) {
-     
-    if (key === "b" || key === "n" || key === " ") {
-        document.querySelectorAll(".s")[0].classList.add("letras-pressionadas");
-        document.querySelectorAll(".s")[1].style.opacity = "1";
-    } else {
-        document.querySelectorAll("." + key)[0].classList.add("letras-pressionadas");
-        document.querySelectorAll("." + key)[1].style.opacity = "1";
-    }
-}
-
-function endKeyboardAnimation (key) {
-    
-    if (key === "b" || key === "n" || key === " ") {
-        document.querySelectorAll(".s")[0].classList.remove("letras-pressionadas");
-        document.querySelectorAll(".s")[1].style.opacity = "0";
-    } else {    
-        document.querySelectorAll("." + key)[0].classList.remove("letras-pressionadas");
-        document.querySelectorAll("." + key)[1].style.opacity = "0";
-    }
-}
  
 
+let letrasBateria = ["Q", "W", "E", "R", "J", "K", "L", "B"];
+
+document.querySelector(".icone-salvar").addEventListener("click", function () {
+         
+    novasLetras(); 
+});  
+
+  
+
+/* ====================================================== */
+/* =================== NOVAS LETRAS ===================== */
+/* ====================================================== */ 
+ 
+
+let primeiraClasse;
+let ultimaClasse;
+let vezesSalvas = 0; 
+let novasLetrasBateria = [];
+
+function novasLetras () { 
+  
+    let temLetrasIguais = false;
+
+    let m = 0;  
+ 
+    for (let i = 0; i < 8; i++) {  
+        if (document.querySelectorAll(".novas-letras")[i].value === "") { 
+            novasLetrasBateria[i] = document.querySelectorAll(".novas-letras")[i].placeholder.toUpperCase();   
+        }
+        else { 
+            novasLetrasBateria[i] = document.querySelectorAll(".novas-letras")[i].value.toUpperCase();   
+        }
+    }
+
+    for (let i = 0; i < 8; i++) {
+
+        for (let j = i+1; j < 8; j++) {
+
+            if (novasLetrasBateria[i] === novasLetrasBateria[j]) {
+                console.log("letras iguais");
+                alert("Não é possível escolher a mesma tecla para duas partes diferentes da bateria!")
+                temLetrasIguais = true;
+                break;
+            }
+        }
+
+        if (temLetrasIguais === true) {
+            break;
+        }
+    }
+
+    if (temLetrasIguais === false) {
+
+        for (let i = 0; i < 8; i++) {    
+
+            document.querySelectorAll(".letras")[m].id = novasLetrasBateria[i]; 
+
+            if (novasLetrasBateria[i] === " ") {
+                document.getElementById(novasLetrasBateria[i]).innerHTML = "⎵";    
+            }
+            else {
+            document.getElementById(novasLetrasBateria[i]).innerHTML = novasLetrasBateria[i];
+            }
+ 
+            letrasBateria[i] = novasLetrasBateria[i];
+            
+            console.log(letrasBateria);
+
+            m = m + 2;   
+        }  
+
+        
+        for (let i = 0; i < 8; i++) {
+            document.querySelectorAll(".novas-letras")[i].style.display = "none";
+        }
+
+        
+        for (let i = 0; i < document.querySelectorAll(".letras").length; i = i + 2) {
+    
+            document.querySelectorAll(".letras")[i].style.opacity = "1";  
+        } 
+
+        document.querySelector(".icone-salvar").style.display = "none";  
+        document.querySelector(".icone-close").style.display = "none";  
+        document.querySelector(".icone-menu").style.display = "revert";  
+        document.querySelector(".icone-config").style.display = "none";  
+        
+        vezesSalvas++;
+    }
+
+    x = 1;
+}
+
+ 
 
 /* ====================================================== */
 /* =============== REMOVING SOUND DELAY ================= */
@@ -172,11 +316,11 @@ let snare = new Audio('sounds/snare.mp3');
 snare.volume = 0.001;
 snare.play();   
 
-let tom1 = new Audio('sounds/tom-1.mp3');
+let tom1 = new Audio('sounds/tom1.mp3');
 tom1.volume = 0.001;
 tom1.play();                
 
-let tom2 = new Audio('sounds/tom-2.mp3');
+let tom2 = new Audio('sounds/tom2.mp3');
 tom2.volume = 0.001;
 tom2.play(); 
 
@@ -184,7 +328,7 @@ let surdo = new Audio('sounds/surdo.mp3');
 surdo.volume = 0.001;
 surdo.play(); 
 
-let hi_hat_closed = new Audio('sounds/hi-hat-closed.mp3');
+let hi_hat_closed = new Audio('sounds/hihat.mp3');
 hi_hat_closed.volume = 0.001;
 hi_hat_closed.play(); 
 
@@ -196,7 +340,7 @@ let ride = new Audio('sounds/ride.mp3');
 ride.volume = 0.001;
 ride.play(); 
 
-let kick = new Audio('sounds/kick.mp3');
+let kick = new Audio('sounds/bumbo.mp3');
 kick.volume = 0.001;
 kick.play();  
 
@@ -208,64 +352,46 @@ kick.play();
 
 
 function makeSound (key) { 
-
-    let kick = new Audio('sounds/kick.mp3');
-
-    switch (key) {
-        
-        case "q":
-            let snare = new Audio('sounds/snare.mp3');
-            snare.play();    
-            break;
-
-        case "w":
-            let tom1 = new Audio('sounds/tom-1.mp3');
-            tom1.play();                
-            break;
-
-        case "e":
-            let tom2 = new Audio('sounds/tom-2.mp3');
-            tom2.play(); 
-            break;
-
-        case "r":
-            let surdo = new Audio('sounds/surdo.mp3');
-            surdo.play(); 
-            break;
-
-        case "j":
-            let hi_hat_closed = new Audio('sounds/hi-hat-closed.mp3');
-            hi_hat_closed.play(); 
-            break;
-        
-        case "k":
-            let crash = new Audio('sounds/crash.mp3');
-            crash.play(); 
-            break;
-        
-        case "l":
-            let ride = new Audio('sounds/ride.mp3');
-            ride.play(); 
-            break;
-
-        case "b": 
-            kick.play(); 
-            break;
  
-        case "n": 
-            kick.play(); 
-            break;
+    if (letrasBateria[0] === key || key === "snare") {
+        let snare = new Audio('sounds/snare.mp3');
+        snare.play(); 
+    }
 
-        case " ": 
-            kick.play(); 
-            break;
-        
-        case "s": 
-            kick.play(); 
-            break; 
+    else if (letrasBateria[1] === key || key === "tom1") {
+        let snare = new Audio('sounds/tom1.mp3');
+        snare.play(); 
+    }
+ 
+    else if (letrasBateria[2] === key || key === "tom2") {
+        let snare = new Audio('sounds/tom2.mp3');
+        snare.play(); 
+    } 
+    
+    else if (letrasBateria[3] === key || key === "surdo") {
+        let snare = new Audio('sounds/surdo.mp3');
+        snare.play(); 
+    }
+ 
+    else if (letrasBateria[4] === key || key === "hihat") {
+        let snare = new Audio('sounds/hihat.mp3');
+        snare.play(); 
+    } 
+    
+    else if (letrasBateria[5] === key || key === "crash") {
+        let snare = new Audio('sounds/crash.mp3');
+        snare.play(); 
+    }
 
-        default: console.log(key);
-            break;
+    else if (letrasBateria[6] === key || key === "ride") {
+        let snare = new Audio('sounds/ride.mp3');
+        snare.play(); 
+    }
+ 
+    else if (letrasBateria[7] === key || key === "bumbo") {
+        let snare = new Audio('sounds/bumbo.mp3');
+        snare.play(); 
     } 
 
 }
+ 
